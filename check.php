@@ -2,7 +2,17 @@
 // スーパーグローバル変数
 // (PHPがもともと用意している変数)
 
-var_dump($_POST);
+// 送信されてきた値の取得
+$username = $_POST['username'];
+$email = $_POST['email'];
+$content = $_POST['content'];
+
+// ユーザー名が空かチェック
+if ($username == '') {
+  $usernameResult = 'ユーザー名が入力されていません';
+} else {
+  $usernameResult = $username;
+}
 
 ?>
 <!DOCTYPE html>
@@ -16,7 +26,7 @@ var_dump($_POST);
 <body>
   <h1>入力内容確認</h1>
 
-  <p>名前：<?php echo $_POST['username']; ?></p>
+  <p>名前：<?php echo $usernameResult; ?></p>
   <p>メールアドレス：<?php echo $_POST['email']; ?></p>
   <p>内容：<?php echo $_POST['content']; ?></p>
 
@@ -24,6 +34,6 @@ var_dump($_POST);
     <button>戻る</button>
     <input type="submit" value="OK">
   </form>
-  
+
 </body>
 </html>
