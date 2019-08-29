@@ -1,11 +1,21 @@
 <?php
+
+// functions.phpを読み込んで、
+// 定義した関数を使えるようにする
+require_once('functions.php');
+
 // スーパーグローバル変数
 // (PHPがもともと用意している変数)
 
 // 送信されてきた値の取得
-$username = $_POST['username'];
-$email = $_POST['email'];
-$content = $_POST['content'];
+// エスケープ処理をして、
+// XSS（クロスサイトスクリプティング）の対策をする
+
+// エスケープ処理：htmlspecialchars
+// htmlspecialchars(対象の文字, オプション, 文字コード)
+$username = h($_POST['username']);
+$email = h($_POST['email']);
+$content = h($_POST['content']);
 
 // ユーザー名が空かチェック
 if ($username == '') {
