@@ -54,7 +54,7 @@ if ($content == '') {
   <p>メールアドレス：<?php echo $emailResult; ?></p>
   <p>内容：<?php echo $contentResult; ?></p>
 
-  <form action="">
+  <form action="thanks.php" method="POST">
     <button>戻る</button>
     <input type="submit" value="OK">
   </form>
