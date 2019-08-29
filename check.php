@@ -14,6 +14,20 @@ if ($username == '') {
   $usernameResult = $username;
 }
 
+// メールアドレスが空かチェック
+if ($email == '') {
+  $emailResult = 'メールアドレスが入力されていません';
+} else {
+  $emailResult = $email;
+}
+
+// 内容が空かチェック
+if ($content == '') {
+  $contentResult = 'お問い合わせ内容が入力されていません';
+} else {
+  $contentResult = $content;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +41,8 @@ if ($username == '') {
   <h1>入力内容確認</h1>
 
   <p>名前：<?php echo $usernameResult; ?></p>
-  <p>メールアドレス：<?php echo $_POST['email']; ?></p>
-  <p>内容：<?php echo $_POST['content']; ?></p>
+  <p>メールアドレス：<?php echo $emailResult; ?></p>
+  <p>内容：<?php echo $contentResult; ?></p>
 
   <form action="">
     <button>戻る</button>
