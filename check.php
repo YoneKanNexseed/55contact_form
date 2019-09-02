@@ -1,5 +1,16 @@
 <?php
 
+// このページが表示された時の
+// 送信方法（GET or POST）の確認
+// GET送信の場合は、入力画面に遷移する
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+  // このページを表示する際の送信がGETの場合
+  // index.htmlに遷移する
+  header('Location: index.html');
+}
+
+
 // functions.phpを読み込んで、
 // 定義した関数を使えるようにする
 require_once('functions.php');
@@ -55,7 +66,14 @@ if ($content == '') {
   <p>内容：<?php echo $contentResult; ?></p>
 
   <form action="thanks.php" method="POST">
-    <button>戻る</button>
+    <input type="hidden" name="username" value="<?php echo $username; ?>">
+    <input type="hidden" name="email" value="<?php echo $email; ?>">
+    <input type="hidden" name="content" value="<?php echo $content; ?>">
+
+    <button
+      type="button"
+      onclick="history.back();"
+    >戻る</button>
     <input type="submit" value="OK">
   </form>
 
